@@ -5,10 +5,10 @@ import pandas as pd
 import os
 
 
-PAGES=42  #se debe ingresar el numero de paginas a consultar, mercado libre tiene 42 paginas por consulta y 48 registros por pagina. Lo máximo serian 42.
-UBICACION='antioquia' #se debe ingresar la ubicación que se desea consultar.
+PAGES=3  #se debe ingresar el numero de paginas a consultar, mercado libre tiene 42 paginas por consulta y 48 registros por pagina. Lo máximo serian 42.
+UBICACION='quindio' #se debe ingresar la ubicación que se desea consultar.
 
-HOME_URL='https://carros.mercadolibre.com.co/antioquia/#applied_filter_id%3Dstate%26applied_filter_name%3DUbicaci%C3%B3n%26applied_filter_order%3D7%26applied_value_id%3DTUNPUEFOVGFiZWI3%26applied_value_name%3DAntioquia%26applied_value_order%3D1%26applied_value_results%3D7550%26is_custom%3Dfalse' 
+HOME_URL='https://carros.mercadolibre.com.co/quindio/#applied_filter_id%3Dstate%26applied_filter_name%3DUbicaci%C3%B3n%26applied_filter_order%3D7%26applied_value_id%3DTUNPUFFVSW9kYmZm%26applied_value_name%3DQuindio%26applied_value_order%3D23%26applied_value_results%3D263%26is_custom%3Dfalse%26view_more_flag%3Dtrue' 
 #pagina inicial de busuqda es importante entrar a mercado libre, filtrar por la ubicacion y copiar el link de la primera pagina.
 
 #El siguiente bloque de codigo recoge los valores que se desean consultar, estos son sacados directamente del codigo html de mercado libre.
@@ -97,6 +97,7 @@ def parse_home(): # esta funcione entra a cada uno se los links de las paginas y
                         else:
                             df2=parse_specs(link)
                             dft2=pd.concat([dft2,df2])
+                    
                     if count==2: # el contador = a 2 significa que es la segunda hoja y acá se debe crear un dataframe que se alimente y conserve de acá en adelante como lo hicimos anteriormente, en este caso con link y ubicación.
                         link_loc_dic_2={'Link':links_to_carr,'Ubicación':links_to_location}
                         dft_link_loc_2= pd.DataFrame(link_loc_dic_2)
@@ -114,7 +115,7 @@ def parse_home(): # esta funcione entra a cada uno se los links de las paginas y
         df_rest_pages=pd.concat(objs=[dft2,dft_2_1], axis=1)#Se unen todos los datos de la 1 en adelante.
         df_total=pd.concat([df_page_1,df_rest_pages]).reset_index(drop=True)# se unen los dos dataframes anteriores u se reiniciia el indice.
         os.makedirs('Datos_obtenidos/', exist_ok=True) # si no existe se crea el directorio.
-        out_file_name='Datos_obtenidos/'+UBICACION+'.csv'#  se guarda el archivo con el nombre de la ubicación para ser analizado posteriormente.
+        out_file_name='Datos_obtenidos/prueba.csv'#  se guarda el archivo con el nombre de la ubicación para ser analizado posteriormente.
 
                                        
         return (df_total.to_csv(out_file_name))        
