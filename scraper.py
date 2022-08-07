@@ -5,10 +5,10 @@ import pandas as pd
 import os
 
 
-PAGES=42  #se debe ingresar el numero de paginas a consultar, mercado libre tiene 42 paginas por consulta y 48 registros por pagina. Lo máximo serian 42.
-UBICACION='antioquia' #se debe ingresar la ubicación que se desea consultar.
+PAGES=20  #se debe ingresar el numero de paginas a consultar, mercado libre tiene 42 paginas por consulta y 48 registros por pagina. Lo máximo serian 42.
+UBICACION='risaralda' #se debe ingresar la ubicación que se desea consultar.
 
-HOME_URL='https://carros.mercadolibre.com.co/antioquia/#applied_filter_id%3Dstate%26applied_filter_name%3DUbicaci%C3%B3n%26applied_filter_order%3D7%26applied_value_id%3DTUNPUEFOVGFiZWI3%26applied_value_name%3DAntioquia%26applied_value_order%3D1%26applied_value_results%3D7550%26is_custom%3Dfalse' 
+HOME_URL='https://carros.mercadolibre.com.co/risaralda/#applied_filter_id%3Dstate%26applied_filter_name%3DUbicaci%C3%B3n%26applied_filter_order%3D7%26applied_value_id%3DTUNPUFJJU2ExMWIyYg%26applied_value_name%3DRisaralda%26applied_value_order%3D24%26applied_value_results%3D952%26is_custom%3Dfalse' 
 #pagina inicial de busuqda es importante entrar a mercado libre, filtrar por la ubicacion y copiar el link de la primera pagina.
 
 #El siguiente bloque de codigo recoge los valores que se desean consultar, estos son sacados directamente del codigo html de mercado libre.
