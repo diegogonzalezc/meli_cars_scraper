@@ -2,3 +2,5 @@ link=$x('//li[@class="ui-search-layout__item"]/div/div/div/a/@href')
 loc=$x('//div[@class="ui-search-item__group ui-search-item__group--location"]/span[@class="ui-search-item__group__element ui-search-item__location"]/text()')
 espec=$x('//th[@class="andes-table__header andes-table__header--left ui-pdp-specs__table__column ui-pdp-specs__table__column-title"]/text()')
 val_espc=$x('//td[@class="andes-table__column andes-table__column--left ui-pdp-specs__table__column"]/span[@class="andes-table__column--value"]/text()')
+inner_link='//link[@rel="canonical"]/@href'
+inner_loc='//div[@class="ui-seller-info__status-info"][2]/div/p/text()'
